@@ -71,6 +71,8 @@ ELSE()
 
     FIND_PACKAGE(VTK REQUIRED COMPONENTS CommonCore IOCore IOLegacy IOPLY IOGeometry FiltersModeling)
 
+    FIND_PACKAGE(Qhull REQUIRED)
+
     FIND_PACKAGE(CMRep REQUIRED)
 
 ENDIF()
@@ -87,5 +89,6 @@ IF(NOT DEPENDENCIES_ONLY)
     INCLUDE_DIRECTORIES(external/pybind11)
     pybind11_add_module(picsl_cmrep src/CMRepPythonBindings.cxx)
     TARGET_LINK_LIBRARIES(picsl_cmrep PUBLIC ${ITK_LIBRARIES} ${VTK_LIBRARIES} ${CMRep_LIBRARIES})
+    TARGET_COMPILE_DEFINITIONS(picsl_cmrep PUBLIC PYBIND11_DETAILED_ERROR_MESSAGES)
     install(TARGETS picsl_cmrep DESTINATION .)
 ENDIF()
