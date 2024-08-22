@@ -77,7 +77,7 @@ cmake \
     -DCMREP_BUILD_VSKEL=ON \
     -DCMAKE_PREFIX_PATH="$PWD/install" \
     -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
-    -DCMAKE_FIXUP_BUNDLE=OFF \
+    -DCMREP_FIXUP_BUNDLE=OFF \
     -DVTK_DIR=$PWD/install/vtk/vtk-9.3.1.data/headers/cmake \
     -B cmrep/build \
     cmrep
