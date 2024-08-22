@@ -29,8 +29,10 @@ namespace py=pybind11;
 
 using namespace std;
 
+// These are the external utilities that we provide an interface to
 extern int cmrep_vskel_main(int, char **);
-
+extern int mesh_tetra_sample_main(int, char **);
+extern int mesh_image_sample_main(int, char **);
 
 template <int (*TFunction)(int, char **)>
 class FunctionWrapper {
@@ -67,8 +69,12 @@ public:
 };
 
 using cmrep_vskel_wrapper = FunctionWrapper<cmrep_vskel_main>;
+using mesh_tetra_sample_wrapper = FunctionWrapper<mesh_tetra_sample_main>;
+using mesh_image_sample_wrapper = FunctionWrapper<mesh_image_sample_main>;
 
 PYBIND11_MODULE(picsl_cmrep, m)
 {
   m.def("cmrep_vskel", &cmrep_vskel_wrapper::execute, "Run cmrep_vskel tool", py::arg("cmd"));
+  m.def("mesh_tetra_sample", &mesh_tetra_sample_wrapper::execute, "Run mesh_tetra_sample tool", py::arg("cmd"));
+  m.def("mesh_image_sample", &mesh_image_sample_wrapper::execute, "Run mesh_image_sample tool", py::arg("cmd"));
 };
