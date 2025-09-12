@@ -55,7 +55,7 @@ ln $(find $PWD/install/vtk/build -name "*.${DYLD_SUFFIX}") install/vtk/shared
 # Link the shared libraries needed for delocate into a simple directory
 
 # Build ITK
-git clone -b v5.2.1 https://github.com/InsightSoftwareConsortium/ITK.git ITK
+git clone -b v5.4.4 https://github.com/InsightSoftwareConsortium/ITK.git ITK
 cmake \
     -DModule_MorphologicalContourInterpolation=ON \
     -DBUILD_EXAMPLES=OFF \
