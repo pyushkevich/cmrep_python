@@ -35,7 +35,7 @@ cmake \
 cmake --build eigen/build --target install $MAKEFLAGS
 
 # Install QHull
-git clone -b v8.1.alpha6 https://github.com/qhull/qhull.git
+git clone -b v8.1-alpha6 https://github.com/qhull/qhull.git
 cmake \
     -DBUILD_EXAMPLES=OFF \
     -DBUILD_TESTING=OFF \
